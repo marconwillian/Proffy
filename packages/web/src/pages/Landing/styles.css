@@ -40,7 +40,6 @@
     width: 30rem;
     height: 10.4rem;
     border-radius: 0.8rem;
-    margin-right: 1.6rem;
     font: 700 2.0rem Archivo;
 
     display: flex;
@@ -49,4 +48,42 @@
 
     text-decoration: none;
     color: var(--color-button-text);
+
+    transition: background-color 0.2s;
+}
+
+.buttons-container a:first-child {
+    margin-right: 1.6rem;
+}
+
+.buttons-container a img {
+    margin-right: 2.4rem;
+}
+
+.buttons-container a.study {
+    background: var(--color-primary-lighter);
+}
+
+.buttons-container a.give-classes {
+    background: var(--color-secundary);
+}
+
+.buttons-container a.study:hover {
+    background: var(--color-primary-light);
+}
+
+.buttons-container a.give-classes:hover {
+    background: var(--color-secundary-dark);
+}
+
+.total-connections {
+    font-size: 1.4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.total-connections img {
+    margin-left: 0.8rem;
 }
