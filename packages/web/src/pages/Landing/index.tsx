@@ -30,7 +30,7 @@ function Landing() {
 
                     <a href="http://localhost:3000/" className="give-classes">
                         <img src={giveClassesIcon} alt="Dar Aula"/>
-                        Dar Aula
+                        Dar aulas
                     </a>
                 </div>
 
