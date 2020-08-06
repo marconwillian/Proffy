@@ -1,0 +1,24 @@
+post http://localhost:30030/classes HTTP/1.1
+Authorization: Basic user:passwd
+Content-Type: application/json
+
+{
+    "name": "Marcon Willian",
+    "avatar": "https://avatars1.githubusercontent.com/u/34342635?s=460&u=f93137003ee57ca3d9f6a517f419346cd2f722d1&v=4",
+    "whatsapp": "66996956402",
+    "bio": "Cara que esta estudando muito e trabalhando pacas.",
+    "subject": "Matemática",
+    "cost": 80,
+    "schedule": [
+        {"week_day": 1, "from": "8:00", "to": "12:00"},
+        {"week_day": 3, "from": "10:00", "to": "18:00"},
+        {"week_day": 4, "from": "8:00", "to": "12:00"}
+    ]
+}
+
+###
+
+get http://localhost:30030/classes
+    ?week_day=1
+    &subject=Matemática
+    &time=11:30
