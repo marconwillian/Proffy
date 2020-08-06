@@ -4,7 +4,7 @@ import routes from './routes';
 
 const app = express();
 
-let port = process.env.PORT || 30030;
+let port = process.env.PORT || 3000;
 
 app.use(express.json())
 app.use(routes)
