@@ -1,4 +1,4 @@
-post https://server.proffy.marconwillian.dev/connections HTTP/1.1
+post https://server-proffy.marconwillian.dev/connections HTTP/1.1
 Authorization: Basic user:passwd
 Content-Type: application/json
 
@@ -9,4 +9,9 @@ Content-Type: application/json
 
 ###
 
-get https://server.proffy.marconwillian.dev/connections HTTP/1.1
+get https://server-proffy.marconwillian.dev/connections HTTP/1.1
+
+
+###
+
+get https://server-ecoleta.marconwillian.dev/items HTTP/1.1
