@@ -1,7 +1,7 @@
 import React, {FormEvent, useState} from 'react';
 import { useHistory } from 'react-router-dom';
 
-import api from '../../services/api';
+import api from '@proffy/api';
 
 import PageHeader from '../../components/PageHeader';
 import Input from '../../components/Input';

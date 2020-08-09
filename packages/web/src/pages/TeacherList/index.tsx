@@ -1,6 +1,6 @@
 import React, { FormEvent, useState } from 'react';
 
-import api from '../../services/api';
+import api from '@proffy/api';
 
 import PageHeader from '../../components/PageHeader';
 import TeacherItem, { Teacher } from '../../components/TeacherItem';
