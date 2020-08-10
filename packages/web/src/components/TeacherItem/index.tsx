@@ -3,7 +3,7 @@ import React from 'react';
 import './styles.css';
 
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
-import api from '../../services/api';
+import api from '@proffy/api';
 
 export interface Teacher {
     id: number;
