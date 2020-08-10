@@ -3,32 +3,52 @@ import React from 'react';
 import './styles.css';
 
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
+import api from '@proffy/api';
 
-function TeacherItems() {
+export interface Teacher {
+    id: number;
+    user_id: number;
+    avatar: string;
+    bio: string;
+    cost: number;
+    name: string;
+    subject: string;
+    whatsapp: string;
+}
+interface TeacherItemProps {
+    teacher: Teacher
+}
+
+const TeacherItems: React.FunctionComponent<TeacherItemProps> = ({teacher}) => {
+
+    function createNewConnection(){
+        api.post('connections', {
+            user_id: teacher.id
+        })
+    }
+
     return (
-        <article className="teacher-item">
+        <article className="teacher-item" >
             <header>
-                <img src="https://avatars1.githubusercontent.com/u/34342635?s=460&u=f93137003ee57ca3d9f6a517f419346cd2f722d1&v=4" alt="Marcon Willian" />
+                <img src={teacher.avatar} alt={teacher.name} />
                 <div>
-                    <strong>Marcon Willian</strong>
-                    <span>Química</span>
+                    <strong>{teacher.name}</strong>
+                    <span>{teacher.subject}</span>
                 </div>
             </header>
             <p>
-                Entusiasta das melhores tecnologias de química avançada.
-                <br /><br />
-                Apaixonado por explodir coisas em laboratório e por mudar a vida das pessoas através de experiências. Mais de 200.000 pessoas já passaram por uma das minhas explosões.
+                {teacher.bio}
             </p>
 
             <footer>
                 <p>
                     Preço/hora
-                    <strong>R$ 80,00</strong>
+                    <strong>{teacher.cost}</strong>
                 </p>
-                <button type="button">
+                <a onClick={createNewConnection} href={`https://wa.me/${teacher.whatsapp}?text=Gostária de saber mais sobre sua aula de ${teacher.subject}`} target="_blank">
                     <img src={whatsappIcon} alt="WhatsApp"/>
                     Entrar em contado
-                </button>
+                </a>
             </footer>
         </article>
     )
