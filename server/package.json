@@ -1,5 +1,5 @@
 {
-  "name": "@proffy/server",
+  "name": "server",
   "version": "0.2.1",
   "main": "src/server.ts",
   "license": "MIT",
@@ -16,6 +16,8 @@
     "knex:rollback": "knex --knexfile src/config/knexfile.ts migrate:rollback"
   },
   "dependencies": {
+    "@sentry/node": "^5.29.2",
+    "@sentry/tracing": "^5.29.2",
     "@types/cors": "^2.8.7",
     "@types/dotenv": "^8.2.0",
     "cors": "^2.8.5",

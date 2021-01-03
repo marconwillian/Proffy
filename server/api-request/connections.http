@@ -10,8 +10,3 @@ Content-Type: application/json
 ###
 
 get https://server-proffy.marconwillian.dev/connections HTTP/1.1
-
-
-###
-
-get https://server-ecoleta.marconwillian.dev/items HTTP/1.1
