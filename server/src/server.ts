@@ -12,5 +12,5 @@ app.use(cors())
 app.use(routes)
 
 app.listen(port, () => {
-    console.log(`Listen on por ${port}`)
+  console.log(`Listen on por ${port}`)
 })
