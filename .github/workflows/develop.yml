@@ -36,5 +36,5 @@ jobs:
       - name: Deploy docker container webhook
         uses: joelwmale/webhook-action@master
         env:
-          WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL  }}/ecoleta-develop
+          WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL  }}/proffy-develop
           data: "{ 'myField': 'myFieldValue'}"
