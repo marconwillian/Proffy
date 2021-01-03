@@ -1,24 +1,48 @@
 import { Request, Response } from 'express';
 
 import db from '../database/connection';
+import Sentry from '../config/sentry';
 
 export default class ClassesController {
-    async index(req: Request, res: Response){
-        let [{amount}] = await db('connections')
-        .count({amount: '*'})
+  async index(request: Request, response: Response) {
+    const transaction = Sentry.startTransaction({
+      op: "connection_number",
+      name: "Return number of connections"
+    });
 
-    return res.status(201).send({amount});
+    try {
+      let [{ amount }] = await db('connections')
+        .count({ amount: '*' })
+
+      return response.status(201).send({ amount });
+    } catch (error) {
+      Sentry.captureException(error);
+      return response.status(400).json({error: true, message: error});
+    } finally {
+      transaction.finish();
     }
+  }
 
-    async create(req: Request, res: Response){
-        const { user_id } = req.body;
+  async create(request: Request, response: Response) {
+    const { user_id } = request.body;
 
-        await db('connections')
-            .insert({
-                user_id
-            })
+    const transaction = Sentry.startTransaction({
+      op: "connection_create",
+      name: "Add a connection"
+    });
 
-        return res.status(201).send();
+    try {
+      await db('connections')
+        .insert({
+          user_id
+        })
+
+      return response.status(201).send();
+    } catch (error) {
+      Sentry.captureException(error);
+      return response.status(400).json({error: true, message: error});
+    } finally {
+      transaction.finish();
     }
-
+  }
 }
